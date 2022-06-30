@@ -1,0 +1,44 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 270px;
+  padding: 5px 10px;
+  padding-bottom: 0;
+  :global {
+    .app-title {
+      height: 30px;
+      border-bottom: 1px solid #000;
+      .title-return {
+        cursor: pointer;
+      }
+    }
+
+    .app-main {
+      height: 282px;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #bcbcbc;
+        border-radius: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #1890ff;
+        border-radius: 2px;
+      }
+
+      &::-webkit-scrollbar-button {
+        height: 0;
+      }
+    }
+
+    .app-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+    }
+  }
+}

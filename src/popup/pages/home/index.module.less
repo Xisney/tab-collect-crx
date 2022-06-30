@@ -1,0 +1,18 @@
+@import (reference) "../utils.less";
+
+.listArea {
+  :global {
+    .list-title,
+    .anticon-edit,
+    .anticon-delete,
+    .anticon-expand {
+      cursor: pointer;
+    }
+    .list-title {
+      .single-text-clamp();
+    }
+    .list-item {
+      flex-wrap: nowrap;
+    }
+  }
+}

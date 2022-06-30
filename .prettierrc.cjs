@@ -10,8 +10,4 @@ module.exports = {
   trailingComma: "none",
   bracketSpacing: true,
   bracketSameLine: true,
-  plugins: [require.resolve("@trivago/prettier-plugin-sort-imports")],
-  importOrder: ["^@plasmohq/(.*)$", "^~(.*)$", "^[./]"],
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true
 }
