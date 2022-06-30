@@ -29,7 +29,10 @@ const Home: FC<HomeProps> = ({ setPage }) => {
       if (inputRef.current) {
         const oldKey = data[editIndex]
         const newKey = inputRef.current.input.value.trim()
-        const saveValue = (await getData(oldKey))[oldKey]
+
+        if (oldKey === newKey) {
+          return
+        }
 
         if (!newKey) {
           throw "不能为空"
@@ -38,6 +41,8 @@ const Home: FC<HomeProps> = ({ setPage }) => {
         if (data.includes(newKey)) {
           throw "名称重复，更新失败"
         }
+
+        const saveValue = (await getData(oldKey))[oldKey]
 
         await updateData(saveValue, oldKey, newKey)
 
