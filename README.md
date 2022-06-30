@@ -1,33 +1,13 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+## 浏览器 tab 收集插件
 
-## Getting Started
+## 背景
 
-First, run the development server:
+学习过程中经常使用网络资源，在针对某个东西进行学习时，可能会打开多个网页进行阅读。
+但是关闭浏览器之后难以快速恢复网页，也不能做到按分组快速打开网页并管理，给我带来了一定程度上的困扰。
 
-```bash
-pnpm dev
-# or
-npm run dev
-```
+## 功能
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
-
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
-
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
-
-## Making production build
-
-Run the following:
-
-```bash
-pnpm build
-# or
-npm run build
-```
-
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
-
-## Submit to the webstores
-
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/workflows#submit-your-extension) and you should be on your way for automated submission!
+1. 一键收集页签
+2. 页签分组管理
+3. 一键打开页签并按名称分组管理
+4. 数据随 chrome 账号同步（需在浏览器开启同步功能）

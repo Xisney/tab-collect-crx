@@ -2,8 +2,8 @@
   "name": "tab-master-crx",
   "displayName": "Tab master crx",
   "version": "0.0.0",
-  "description": "A basic Plasmo extension.",
-  "author": "kobe",
+  "description": "A CRX for collecting your tabs by group",
+  "author": "yusheng",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build"
