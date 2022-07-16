@@ -4,10 +4,10 @@ import { FC, useEffect, useState } from "react"
 import {
   getCurrentWinTabs,
   getData,
+  getTargetPropOfTabs,
   removeData,
   saveData,
-  SaveItem,
-  targetKeyOfTab
+  SaveItem
 } from "~popup/util"
 import type { CommonPageProps } from "../common"
 
@@ -36,6 +36,16 @@ const Collect: FC<CollectProps> = ({ setPage, collectKey }) => {
     setTabs(tabs.filter((_, i) => i !== index))
   }
 
+  const handleAdd = async () => {
+    const tabs = await getCurrentWinTabs()
+    setTabs((pre) => {
+      const filteredTabs = getTargetPropOfTabs(tabs).filter(
+        (t) => t.url && pre.findIndex((v) => v.url === t.url) === -1
+      )
+      return pre.concat(filteredTabs)
+    })
+  }
+
   const handleConfirm = async () => {
     try {
       if (collectKey) {
@@ -47,14 +57,7 @@ const Collect: FC<CollectProps> = ({ setPage, collectKey }) => {
       } else {
         if (tabs.length !== 0) {
           await saveData({
-            [Date.now() + ""]: tabs.map((t) => {
-              const res = {}
-
-              targetKeyOfTab.forEach((k) => {
-                res[k] = t[k]
-              })
-              return res as SaveItem
-            })
+            [Date.now() + ""]: getTargetPropOfTabs(tabs as chrome.tabs.Tab[])
           })
         }
       }
@@ -98,6 +101,11 @@ const Collect: FC<CollectProps> = ({ setPage, collectKey }) => {
         />
       </div>
       <div className="app-footer">
+        {collectKey && (
+          <Button style={{ marginRight: 16 }} onClick={handleAdd}>
+            补充
+          </Button>
+        )}
         <Button type="primary" onClick={handleConfirm}>
           确认
         </Button>

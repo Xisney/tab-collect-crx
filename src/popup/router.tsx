@@ -1,5 +1,4 @@
-import type { ComponentClass, FC } from "react"
-import type React from "react"
+import type { ComponentType } from "react"
 import Collect from "./pages/collect"
 import Home from "./pages/home"
 
@@ -13,7 +12,7 @@ export function getPage(page: Pages, props: any) {
   return withPropsIn(routerConfig[page], props)
 }
 
-function withPropsIn(Component: FC | ComponentClass, props: any) {
+function withPropsIn(Component: ComponentType, props: any) {
   return <Component {...props} />
 }
 

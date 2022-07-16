@@ -49,3 +49,14 @@ export async function openLinks(key: string) {
     title: key
   })
 }
+
+export function getTargetPropOfTabs(tabs: chrome.tabs.Tab[]) {
+  return tabs.map((t) => {
+    const res = {}
+
+    targetKeyOfTab.forEach((k) => {
+      res[k] = t[k]
+    })
+    return res as SaveItem
+  })
+}
